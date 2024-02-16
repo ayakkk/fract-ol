@@ -6,11 +6,11 @@
 /*   By: anakasuj <anakasuj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:10:39 by anakasuj          #+#    #+#             */
-/*   Updated: 2023/05/30 15:10:40 by anakasuj         ###   ########.fr       */
+/*   Updated: 2024/02/17 02:04:39 by anakasuj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/libft.h"
 
 void	ft_putendl_fd(char *s, int fd)
 {

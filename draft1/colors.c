@@ -6,6 +6,14 @@ void set_color(t_fractol *a){
 	a->color = 0xD7E4FF;
 }
 
+void	my_mlx_pixel_put( t_fractol *a , int i, int j, int color)
+{
+	char	*dst;
+
+	dst = a->adr + (i * a->line_length + j* (a->bits_per_pixel / 8));
+	*(unsigned int*)dst = color;
+}
+
 
 // check if character is a whitespace character
 static int	ft_isspace(int c)

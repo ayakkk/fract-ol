@@ -6,11 +6,11 @@
 /*   By: anakasuj <anakasuj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 20:10:27 by anakasuj          #+#    #+#             */
-/*   Updated: 2023/07/02 14:15:33 by anakasuj         ###   ########.fr       */
+/*   Updated: 2024/02/17 02:03:40 by anakasuj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/libft.h"
 
 t_list	*ft_lstlast(t_list *lst)
 {

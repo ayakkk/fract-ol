@@ -6,11 +6,11 @@
 /*   By: anakasuj <anakasuj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 15:16:29 by anakasuj          #+#    #+#             */
-/*   Updated: 2023/07/03 15:23:22 by anakasuj         ###   ########.fr       */
+/*   Updated: 2024/02/17 02:04:53 by anakasuj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/libft.h"
 
 int	word_count(char const *s, char c)
 {

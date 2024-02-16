@@ -6,9 +6,11 @@
 /*   By: anakasuj <anakasuj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:11:14 by anakasuj          #+#    #+#             */
-/*   Updated: 2023/05/30 15:11:15 by anakasuj         ###   ########.fr       */
+/*   Updated: 2024/02/17 02:05:30 by anakasuj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../include/libft.h"
 
 int	ft_tolower(int ch)
 {

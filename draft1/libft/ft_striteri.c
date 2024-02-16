@@ -6,11 +6,11 @@
 /*   By: anakasuj <anakasuj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:10:51 by anakasuj          #+#    #+#             */
-/*   Updated: 2023/07/02 14:57:27 by anakasuj         ###   ########.fr       */
+/*   Updated: 2024/02/17 02:04:59 by anakasuj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/libft.h"
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {

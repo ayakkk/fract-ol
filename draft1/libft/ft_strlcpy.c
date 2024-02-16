@@ -6,11 +6,11 @@
 /*   By: anakasuj <anakasuj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:10:57 by anakasuj          #+#    #+#             */
-/*   Updated: 2023/05/30 15:10:58 by anakasuj         ###   ########.fr       */
+/*   Updated: 2024/02/17 02:05:07 by anakasuj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/libft.h"
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {

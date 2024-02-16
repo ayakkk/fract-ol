@@ -26,6 +26,8 @@ all : $(NAME)
 $(NAME) : $(OBJ)
 		$(MAKE)  -C libft
 		$(MAKE)  -C minilibx_mms_20191025_beta
+		cp ./minilibx_mms_20191025_beta/libmlx.dylib ./
+		$(CC) -I $(HEADER) ./minilibx_mms_20191025_beta/libmlx.dylib ./libft/libft.a $(OBJ) -o $@
 
 bonus: all 
 

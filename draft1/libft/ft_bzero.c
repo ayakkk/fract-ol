@@ -6,11 +6,11 @@
 /*   By: anakasuj <anakasuj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:09:42 by anakasuj          #+#    #+#             */
-/*   Updated: 2023/05/30 15:09:43 by anakasuj         ###   ########.fr       */
+/*   Updated: 2024/02/17 02:01:59 by anakasuj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/libft.h"
 
 void	ft_bzero(void *a, size_t len)
 {

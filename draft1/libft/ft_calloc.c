@@ -6,11 +6,11 @@
 /*   By: anakasuj <anakasuj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 18:51:40 by anakasuj          #+#    #+#             */
-/*   Updated: 2023/05/30 18:53:18 by anakasuj         ###   ########.fr       */
+/*   Updated: 2024/02/17 02:02:26 by anakasuj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/libft.h"
 
 void	*ft_calloc(size_t count, size_t size)
 {

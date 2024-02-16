@@ -6,9 +6,11 @@
 /*   By: anakasuj <anakasuj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:11:16 by anakasuj          #+#    #+#             */
-/*   Updated: 2023/05/30 15:11:18 by anakasuj         ###   ########.fr       */
+/*   Updated: 2024/02/17 02:05:40 by anakasuj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../include/libft.h"
 
 int	ft_toupper(int ch)
 {
