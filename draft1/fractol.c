@@ -3,19 +3,20 @@
 //checks for values,
 //if none provided, default julia values
 void init_set(){
-    get_color();
+    // set_color();
 
 }
 
 //check if julia set
 //diff case for julia set 
-static void julia_init(){
+void julia_init(){
 
-    set_color();
+    // set_color();
+
 }
 
 //z = z^2 + k
-double mandelbrot(t_fractol *fractol, int kr, int ki)
+double mandelbrot(t_fractol *fractol )
 {
 	double	zr;
 	double	zi;
@@ -51,31 +52,19 @@ int julia(t_fractol *fractol, int zr, int zi)
 
 int	fractal_calculation(t_fractol *f, int ar, int ai)
 {
-    int		x;
-	int		y;
-	int	ar;
-	int	ai;
-	int	nb_iter;
+    // int		x;
+	// int		y;
+	// int	ar;
+	// int	ai;
+	int	nb_iter = 0;
 
 	if (f->set == MANDELBROT)
-		nb_iter = mandelbrot(f, ar, ai);
+		nb_iter = mandelbrot(f);
+		// nb_iter = mandelbrot(f, ar, ai);
 	else if (f->set == JULIA)
 		nb_iter = julia(f, ar, ai);
 	return (nb_iter);
 }
-
-
-/* set_complex:
-*	Maps the complex number axes to the window width and height to
-*	create an equivalence between a given pixel and a complex number.
-*		- The Mandelbox set real and imaginary axes range from 4 to -4
-*		so the edges are mapped to those numbers for the fractal to appear
-*		centered.
-*		- Julia needs a bit more space to the right than Mandelbrot or
-*		Burning Ship, so the mapping must also be shifted slightly.
-*	Also, one of the edges is always calculated according to the other edges
-*	to avoid fractal distortion if the window proportions change.
-*/
 
 void	complex_init(t_fractol *f)
 {

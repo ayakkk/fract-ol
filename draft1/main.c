@@ -1,24 +1,6 @@
 #include "fractol.h"
 #include "mlx.h"
 
-void	ft_mlx_init(t_fractol *f)
-{
-	f->mlx = mlx_init();
-	if (!f->mlx){
-		printf("error connecting to mlx");
-		exit(1);
-	}
-	f->win = mlx_new_window(f->mlx, WIDTH, HEIGHT, "Fractol");
-	if (!f->win){
-		printf("error creating window");
-	}
-	f->sx = 2.0;
-	f->rx = 0.5;
-	f->fx = 1.0;
-	get_complex_layout(f);
-	// color_shift(f);
-}
-
 void parse_args(){
 	classify_set();
 	julia_init();
@@ -39,7 +21,7 @@ static void classify_set(t_fractol *a, char **argv){
 	else if (ignore_case(argv[1], "julia", 'j', '2'))
 		a->set = JULIA;
 	else
-		ft_error(1);
+		ft_error();
 }
 
 static void fractal_init(t_fractol *a, int argc, char **argv){
@@ -57,14 +39,30 @@ static void fractal_init(t_fractol *a, int argc, char **argv){
 	a->sx = 0;
 	a->rx = 0;
 	a->fx = 0;
-	// a->palette = NULL;
-	// a->color_pattern = -1;
 	// a->color = 0;
     classify_set(&a, argv);
     init_set();
     get_color(); //need colors
 }
 
+
+void	ft_mlx_init(t_fractol *f)
+{
+	f->mlx = mlx_init();
+	if (!f->mlx){
+		printf("error connecting to mlx");
+		exit(1);
+	}
+	f->win = mlx_new_window(f->mlx, WIDTH, HEIGHT, "Fractol");
+	if (!f->win){
+		printf("error creating window");
+	}
+	f->sx = 2.0;
+	f->rx = 0.5;
+	f->fx = 1.0;
+	complex_init(f);
+	// color_shift();
+}
 
 __attribute__((destructor))
 static void destructor() {
@@ -77,12 +75,11 @@ int main(int argc, char **argv){
 	// void	*mlx;
 
     if (argc < 2)
-        ft_error(1);
+        ft_error();
 
     fractal_init(&a, argc, argv);
 	parse_args();
-	ft_mlx_init();
-
+	ft_mlx_init(&a);
 
 	// mlx = mlx_init();
 	// mlx_put_image_to_window();

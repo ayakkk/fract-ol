@@ -2,16 +2,13 @@
 # define FRACTOL_H
 
 # include "mlx.h"
-// # include "libft.h"
+# include "libft.h"
 # include <stdio.h>
 # include <math.h>
 #include <libc.h>
 
 # define MANDELBROT 1
 # define JULIA 2
-// # define BURNING_SHIP 3
-// # define TRICORN 4
-// # define MANDELBOX 5
 # define TRIANGLE 3
 
 # define WIDTH 1000

@@ -1,20 +1,32 @@
 #include "fractol.h"
 
-
-
-
-
-// int set_color(){
-
-// }
-
-// /* get_color:
-// *	Gets the color option provided as argument at program launch.
-// *	If no color was specified, sets a default value to be used.
-// */
-
-void set_color(t_fractol *a, int argc, char ** argv){
+//set color if provided, 
+//if not, default
+void set_color(t_fractol *a){
 	a->color = 0xD7E4FF;
+}
+
+
+// check if character is a whitespace character
+static int	ft_isspace(int c)
+{
+	return (c == ' ' || c == '\t' || c == '\n' || c == '\v' || c == '\f' || c == '\r');
+}
+
+static int	skip_space_sign(char *str, int *is_neg)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] && ft_isspace(str[i]))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			*is_neg = -1;
+		i++;
+	}
+	return (i);
 }
 
 // string to float
@@ -43,6 +55,6 @@ double	ft_atof(char *str)
 		i++;
 	}
 	if (str[i] && !ft_isdigit(str[i]))
-		return (-42);
+		return (-1);
 	return (nb * is_neg);
 }
