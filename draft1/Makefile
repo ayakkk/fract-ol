@@ -1,38 +1,36 @@
 NAME = fractol
 # NAME_OBJ=($))
-HEADER= ./include/
-# SERVER   = server
-# CLIENT   = client
+# HEADER= ./include/ 
+HEADER= ./include/ 
 SRC=colors.c fractol.c main.c render.c 
 OBJ=$(SRC:.c=.o)
 BONUS_OBJ=$(BONUS:.c=.o)
+MINI_DIR= minilibx-linux
+MINI_LIB = libmlx.a	
+# MINI_DIR = ./minilibx_mms_20191025_beta
+# MINI_LIB = libmlx.dylib
 
 ifeq ($(MAKECMDGOALS), bonus)
 OBJ += $(BONUS_OBJ)
 endif
 
-FLAGS=-Wall -Wextra -Werror
+# FLAGS=-Wall -Wextra -Werror
+FLAGS= -I/usr/X11R6/include
+
+MLX_CFLAGS    =    -L/usr/X11R6/lib -lX11 -lXext -lm #REMOVE IF NOT ON M1
 
 all : $(NAME) 
 
-# minilibx_mms_20191025_beta
-
-# server: server.o $(OBJ)
-# 	$(CC) $(FLAGS) -I $(HEADER) $^ -o $@
-
-# client: client.o $(OBJ)
-	# $(CC) $(FLAGS) -I $(HEADER) $^ -o $@
-
 $(NAME) : $(OBJ)
 		$(MAKE)  -C libft
-		$(MAKE)  -C minilibx_mms_20191025_beta
-		cp ./minilibx_mms_20191025_beta/libmlx.dylib ./
-		$(CC) -I $(HEADER) ./minilibx_mms_20191025_beta/libmlx.dylib ./libft/libft.a $(OBJ) -o $@
+		$(MAKE)  -C $(MINI_DIR)
+		cp $(MINI_DIR)/$(MINI_LIB) ./
+		$(CC) -I $(HEADER) $(MINI_DIR)/$(MINI_LIB) $(MLX_CFLAGS) ./libft/libft.a $(OBJ) -o $@
 
 bonus: all 
 
 %.o : %.c
-	cc $(FLAGS) -I $(HEADER) -c $< -o $@ 
+	cc $(FLAGS) -I $(MINI_DIR) -I $(HEADER) -c $< -o $@ 
 clean:
 	rm -f $(OBJ) $(BONUS_OBJ) $(NAME_OBJ)
 

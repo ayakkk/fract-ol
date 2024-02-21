@@ -2,12 +2,14 @@
 # define FRACTOL_H
 
 # include "mlx.h"
+// # include "mlx_int.h" //for linux ver of minilibx
 # include "libft.h"
 # include <stdio.h>
 # include <math.h>
 #include <libc.h>
 #include <stdbool.h>
 #include <string.h>
+#include <stdlib.h> //possibly not necessary
 
 # define MANDELBROT 1
 # define JULIA 2
@@ -42,6 +44,8 @@ typedef struct s_fractol
 	double	rx;
 	double	fx;
 
+	int nb_iter;
+
 	int		color;
 	char * adr;
 	int bits_per_pixel;
@@ -52,6 +56,7 @@ typedef struct s_fractol
 //main
 void fractal_init(t_fractol *a, char **argv);
 void ft_error(void);
+void print_fractol(t_fractol *frac);
 // int ignore_case(const char *str1, const char *str2, char c1, char c2);
 
 // int ignore_case();
@@ -61,13 +66,17 @@ void ft_error(void);
 void	complex_init(t_fractol *f);
 void init_set();
 void julia_init();
+// void fractal_calculation(t_fractol *f, int ar, int ai);
+int fractal_calculation(t_fractol *f, int ar, int ai);
+int	mandelbrot(double cr, double ci);
 
 //colors
 void set_color(t_fractol *a);
 void	my_mlx_pixel_put( t_fractol *a , int i, int j, int color);
 
 //render
-int	fractal_calculation(t_fractol *f, int ar, int ai);
-
+int rerender(t_fractol *f);
+int key_press(int keycode, void *param);
+int mouse_press(int button, int x, int y, void *param);
 
 #endif
