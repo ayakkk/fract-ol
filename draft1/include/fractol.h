@@ -13,7 +13,11 @@
 
 # define MANDELBROT 1
 # define JULIA 2
-# define TRIANGLE 3
+// # define JULIA_A -0.63 
+// # define JULIA_B -0.3
+# define JULIA_A 0.043
+# define JULIA_B 0.32
+
 
 # define WIDTH 1000
 # define HEIGHT 1000
@@ -44,7 +48,11 @@ typedef struct s_fractol
 	double	rx;
 	double	fx;
 
+	double ratio;
+
 	int nb_iter;
+
+	int j_option; ////////////
 
 	int		color;
 	char * adr;
@@ -59,10 +67,7 @@ typedef struct s_fractol
 void fractal_init(t_fractol *a, char **argv);
 void ft_error(void);
 void print_fractol(t_fractol *frac);
-// int ignore_case(const char *str1, const char *str2, char c1, char c2);
-
-// int ignore_case();
-// int ignore_case(const char *str1, const char *str2, char c1, char c2);
+int x_button(int keycode, t_fractol *param);
 
 //fractol
 void	complex_init(t_fractol *f);
@@ -82,7 +87,9 @@ void init_color_storage(t_fractol *f);
 
 //render
 int rerender(t_fractol *f);
-int key_press(int keycode, void *param);
-int mouse_press(int button, int x, int y, void *param);
+// int key_press(int keycode, void *param);
+int key_press(int keycode, t_fractol *param);
+// int mouse_press(int button, int x, int y, void *param);
+int mouse_press(int button, int x, int y, t_fractol *param);
 
 #endif

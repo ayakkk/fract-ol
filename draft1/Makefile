@@ -1,6 +1,4 @@
 NAME = fractol
-# NAME_OBJ=($))
-# HEADER= ./include/ 
 HEADER= ./include/ 
 SRC=colors.c fractol.c main.c render.c 
 OBJ=$(SRC:.c=.o)
@@ -15,7 +13,7 @@ OBJ += $(BONUS_OBJ)
 endif
 
 # FLAGS=-Wall -Wextra -Werror
-FLAGS= -I/usr/X11R6/include
+FLAGS = -Wall -Wextra -Werror -I/usr/X11R6/include
 
 MLX_CFLAGS    =    -L/usr/X11R6/lib -lX11 -lXext -lm #REMOVE IF NOT ON M1
 

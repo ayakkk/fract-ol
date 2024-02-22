@@ -18,7 +18,7 @@ static int ft_strcmp(const char *s1, const char *s2){
 
 
 static char * ignore_case(char * s1){
-	int i = 0;
+	size_t i = 0;
 	while(i < ft_strlen(s1) ){
 		if (s1[i] >= 'a' && s1[i] <= 'z'){
 			s1[i] -= 32;
@@ -78,6 +78,8 @@ void fractal_init(t_fractol *a, char **argv){
 	a->rx = 0;
 	a->fx = 0;
 
+	a-> ratio = 1;
+
 	a->color = 0;
     a->adr = NULL;
     a->bits_per_pixel = 0;
@@ -131,13 +133,14 @@ int main(int argc, char **argv){
 	fractal_init(&a, argv);
 	parse_args(&a, argv); //or julia init
 	ft_mlx_init(&a);
-	printf("aaaaaaa\n");
+	// printf("aaaaaaa\n");
 	rerender(&a);
 	// mlx = mlx_init();
 	// mlx_put_image_to_window();
 
-	mlx_hook(a.win, 2, 1L<<0, key_press, NULL);
-	mlx_hook(a.win, 4, 1L<<2, mouse_press, NULL);
+	mlx_hook(a.win, 2, 1L<<0, key_press, &a);
+	mlx_hook(a.win, 4, 1L<<2, mouse_press, &a);
+	mlx_hook(a.win, 17, 1L<<2, x_button, &a);
 	mlx_expose_hook(a.win, rerender, &a);
 
 	mlx_loop(a.mlx);

@@ -17,41 +17,6 @@ void julia_init(){
 }
 
 //z = z^2 + k
-// double mandelbrot(t_fractol *fractol )
-// {
-// 	double	zr;
-// 	double	zi;
-// 	int		i;
-
-// 	zr = 0;
-// 	zi = 0;
-// 	i = -1;
-// 	while (i++ < 256 && zr * zr + zi * zi < 4)
-// 	{
-// 		double tmp = zr * zr - zi * zi + fractol->kr;
-// 		zi = 2 * zr * zi + fractol->ki;
-// 		zr = tmp;
-// 	}
-// 	return (1.0 / (i + 2));
-// }
-
-// double mandelbrot(t_fractol *f, double ar, double ai)
-// {
-// 	double	zr;
-// 	double	zi;
-// 	int		i;
-
-// 	zr = 0;
-// 	zi = 0;
-// 	i = -1;
-// 	while (i++ < 256 && zr * zr + zi * zi < 4)
-// 	{
-// 		double tmp = zr * zr - zi * zi + ar;
-// 		zi = 2 * zr * zi + ai;
-// 		zr = tmp;
-// 	}
-// 	return (1.0 / (i + 2));
-// }
 
 // The mandelbrot function calculates whether a given 
 // complex number cr + ci*i (where i is the imaginary unit and cr,
@@ -78,7 +43,7 @@ int	mandelbrot(double cr, double ci)
 		zi = tmp;
 		n++;
 	}
-	printf("mandelbrot here\n");
+	// printf("mandelbrot here\n");
 	return (n);
 }
 
@@ -87,69 +52,29 @@ int	mandelbrot(double cr, double ci)
 // to determine its behavior in the Julia set for
 //  a given complex parameter k (represented by fractol->kr + fractol->ki*i).
 
-// int julia(t_fractol *fractol, int zr, int zi)
-// {
-// 	int	i;
+//starting real and imaginary valyes diff
+//find julia starting values
 
-// 	i = 0;
-// 	while (i < 256 && zr * zr + zi * zi < 4)
-// 	{
-// 		int tmp = zr * zr - zi * zi + fractol->kr;
-// 		zi = 2 * zr * zi + fractol->ki;
-// 		zr = tmp;
-// 		i++;
-// 	}
-// 	printf("julia here\n");
-// 	return (1.0 / (i + 2));
-// }
 
 int julia(t_fractol *fractol, double zr, double zi)
 {
-	int	i;
+    int		n;
+    double	tmp;
 
-	i = 0;
-	while (i < 256 && zr * zr + zi * zi < 4)
-	{
-		double tmp = zr * zr - zi * zi + fractol->kr;
-		zi = 2 * zr * zi + fractol->ki;
-		zr = tmp;
-		i++;
-	}
-	// 直接反復回数を返すことで、色の決定に利用できるようにする
-	return i;
+	(void)fractol;
+    n = 0;
+    while (n < MAX_ITERATIONS)
+    {
+        if ((zr * zr + zi * zi) > 4.0)
+            break ;
+        tmp = 2 * zr * zi + JULIA_A; // Use the ci from fractol struct
+        zr = (zr * zr) - (zi * zi) + JULIA_B; // Use the cr from fractol struct
+        zi = tmp;
+        n++;
+    }
+    // You can add any debug or print statements here if needed
+    return (n);
 }
-
-// int julia(t_fractol *fractol, double zr, double zi)
-// {
-//     int i;
-//     i = 0;
-//     while (i < 256 && zr * zr + zi * zi < 4)
-//     {
-//         double tmp = zr * zr - zi * zi + fractol->kr;
-//         zi = 2 * zr * zi + fractol->ki;
-//         zr = tmp;
-//         i++;
-//     }
-
-//     // 色の計算
-//     if (i < 256)
-//     {
-//         // 反復回数に基づいて色を計算する例
-//         // ここでは反復回数を基にRGBの各成分を計算しています。
-//         // 実際の計算方法は、求めるビジュアル効果に応じて調整してください。
-//         int red = (i % 8) * 32; // 例えば、反復回数に基づいて赤色成分を計算
-//         int green = (i % 16) * 16; // 緑色成分
-//         int blue = (i % 32) * 8; // 青色成分
-//         return (red << 16) | (green << 8) | blue; // RGB色を返す
-//     }
-//     else
-//     {
-//         // 最大反復回数に達した場合、通常は黒または他の固定色を返す
-//         return 0x000000; // 黒
-//     }
-// }
-
-
 
 // int calculate_color(int nb_iter, int fractal_type) {
 //     if (fractal_type == MANDELBROT) {
@@ -176,7 +101,7 @@ int fractal_iter_calculation(t_fractol *f, double ar, double ai)
 	// wi = 0;
 	int	nb_iter = -1;
 
-	printf("frac init calc %i \n", f-> set);
+	// printf("frac init calc %i \n", f-> set);
 	if (f->set == MANDELBROT)
 		nb_iter = mandelbrot(ar, ai);
 	else if (f->set == JULIA)
@@ -205,7 +130,7 @@ int fractal_iter_calculation(t_fractol *f, double ar, double ai)
 void	complex_init(t_fractol *f)
 {
 	printf("in func complex_init\n");
-    if (f->set == JULIA)
+    if (f->set == JULIA )
 	{
 		f->min_r = -2.0;
 		f->max_r = 2.0;

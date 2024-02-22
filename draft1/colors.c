@@ -25,11 +25,6 @@ void init_color_storage(t_fractol *f) {
     f->color_storage[3] = 0x8fd6f2; 
     f->color_storage[4] = 0xfca2c6; //pink
 
-	for (int i = 0; i < num_colors; i++) {
-        printf("Color %d: #%06X\n", i, f->color_storage[i]);
-    }
-
-	
     // Remember to free color_storage later when you're done with it
 }
 
