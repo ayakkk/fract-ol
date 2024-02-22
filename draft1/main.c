@@ -7,23 +7,52 @@ void print_fractol(t_fractol *frac) {
          frac->color, frac->adr, frac->bits_per_pixel, frac->endian, frac->line_length);
 }
 
+
+static int ft_strcmp(const char *s1, const char *s2){
+    while (*s1 && (*s1 == *s2)) {
+        s1++;
+        s2++;
+    }
+    return *(const unsigned char*)s1 - *(const unsigned char*)s2;
+}
+
+
+static char * ignore_case(char * s1){
+	int i = 0;
+	while(i < ft_strlen(s1) ){
+		if (s1[i] >= 'a' && s1[i] <= 'z'){
+			s1[i] -= 32;
+		}
+		i++;
+	}
+	return s1;
+}
+
 static void classify_set(t_fractol *a, char **argv){
-    // if (ignore_case(argv[1], "mandelbrot", 'm', '1'))
-	// 	a->set = MANDELBROT;
-	// else if (ignore_case(argv[1], "julia", 'j', '2'))
-	// 	a->set = JULIA;
-	// else //KOKOKOKOKOKOKO
-		// ft_error();
-	(void ) a;
-	(void ) argv;
-	printf("in func classify_set\n");
+	printf("comparing %s \n", argv[1]);
+	char * str = ignore_case(argv[1]);
+	printf("str: %s \n", str);
+
+	if (ft_strcmp(str, "JULIA") == 0){
+		a-> set = JULIA;
+		return ;
+	}
+	else if (ft_strcmp(str, "MANDELBROT") == 0){
+		a-> set = MANDELBROT;
+		return ;
+	}
+	printf("end of classify_set\n");
+	// printf("a-> set %i \n", a-> set);
+	ft_error();
+	// exit(1);
+
 }
 
 
 void parse_args(t_fractol *a, char **argv){
 	printf("in func parse_args\n");
-	// classify_set(a, argv);
-	julia_init();
+	classify_set(a, argv);
+	// julia_init();
 }
 
 void ft_error(){
@@ -31,10 +60,6 @@ void ft_error(){
 	exit(1);
 }
 
-// int ignore_case(){
-
-// 	return 0;
-// }
 
 // void fractal_init(t_fractol *a, int argc, char **argv){
 void fractal_init(t_fractol *a, char **argv){
@@ -56,6 +81,8 @@ void fractal_init(t_fractol *a, char **argv){
 	a->color = 0;
     a->adr = NULL;
     a->bits_per_pixel = 0;
+
+	a-> color_storage = NULL;
     // a->endian = 1073217536;
     a->line_length = 0;
 	printf("fractal_init done\n");
@@ -102,7 +129,7 @@ int main(int argc, char **argv){
 
     // fractal_init(&a, argc, argv);
 	fractal_init(&a, argv);
-	// parse_args(&a, argv); or julia init
+	parse_args(&a, argv); //or julia init
 	ft_mlx_init(&a);
 	printf("aaaaaaa\n");
 	rerender(&a);

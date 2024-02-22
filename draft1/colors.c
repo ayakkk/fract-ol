@@ -2,8 +2,35 @@
 
 //set color if provided, 
 //if not, default
-void set_color(t_fractol *a){
-	a->color = 0xD7E4FF;
+// void set_color(t_fractol *a){
+// 	a->color = 0xD7E4FF;
+
+// }
+
+void set_color(t_fractol *a, int i, int color){
+	// a->color = 0xD7E4FF;
+	printf("in func set color \n");
+	a->color_storage[i] = color;
+	
+}
+
+void init_color_storage(t_fractol *f) {
+    int num_colors = 5; // Example: 5 different colors
+    f->color_storage = (int *)malloc(sizeof(int) * num_colors);
+
+    // Example colors (ARGB format)
+    f->color_storage[0] = 0xe6f547; 
+    f->color_storage[1] = 0x4362de; 
+    f->color_storage[2] = 0x76e895; 
+    f->color_storage[3] = 0x8fd6f2; 
+    f->color_storage[4] = 0xfca2c6; //pink
+
+	for (int i = 0; i < num_colors; i++) {
+        printf("Color %d: #%06X\n", i, f->color_storage[i]);
+    }
+
+	
+    // Remember to free color_storage later when you're done with it
 }
 
 void	my_mlx_pixel_put( t_fractol *a , int i, int j, int color)

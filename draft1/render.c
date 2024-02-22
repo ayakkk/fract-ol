@@ -93,22 +93,22 @@ int mouse_press(int button, int x, int y, void *param)
     return (0);
 }
 
-int calculate_color(int x){
-	// printf("%i \n", x);
-	if (x < 0.005)
-		return 0x8ae067;
-	if (x == 0.25)
-        return 0x8ae067;
-	// if (x > 150)
-	// 	return 0xc690f5;
-	else if (x == 0.3861)
-		return 0xD7E4FF;
-	return 0xFF4500; 
-}
+// int calculate_color(int x){
+// 	// printf("%i \n", x);
+// 	if (x < 0.005)
+// 		return 0x8ae067;
+// 	if (x == 0.25)
+//         return 0x8ae067;
+// 	// if (x > 150)
+// 	// 	return 0xc690f5;
+// 	else if (x == 0.3861)
+// 		return 0xD7E4FF;
+// 	return 0xFF4500; 
+// }
 
-int create_rgb(int r, int g, int b) {
-    return (r << 16) | (g << 8) | b;
-}
+// int create_rgb(int r, int g, int b) {
+//     return (r << 16) | (g << 8) | b;
+// }
 
 unsigned int set_color_two(int nb_iter) {
     if (nb_iter == MAX_ITERATIONS)
@@ -121,17 +121,21 @@ unsigned int set_color_two(int nb_iter) {
     return (red << 16) | (green << 8) | blue;
 }
 
+
+//loop through every pixel, and display ("put image to window") at the end
 int rerender(t_fractol *f){
     int		x;
 	int		y;
 	double	ar;
 	double	ai;
-	int		nb_iter;
+	int		nb_iter = 1;
 
+	// int color_index = nb_iter % 5; 
 	printf("in func rerender: \n");
 	mlx_clear_window(f->mlx, f->win);
 	y = -1;
 
+	init_color_storage(f);
 	// int color = 0;
 	while (y++ < WIDTH)
 	{
@@ -141,13 +145,33 @@ int rerender(t_fractol *f){
 			// Convert pixel coordinate (x, y) to complex number (ar, ai)
 			ar = f->min_r + (double) x * (f->max_r - f->min_r) / WIDTH;
 			ai = f->max_i + (double) y * (f->min_i - f->max_i) / HEIGHT;
-			nb_iter = fractal_calculation(f, ar, ai);
-			int color = set_color_two(nb_iter);
-			my_mlx_pixel_put(f, x, y, color); //HEREREREREREREERE
+			nb_iter = fractal_iter_calculation(f, ar, ai);
+			// my_mlx_pixel_put(f, x, y, nb_iter); //HEREREREREREREERE
+
+			printf("nb_iter: %d \n", nb_iter);
+			printf(" %d  %d \n", x, y);
+			// int color = set_color_two(nb_iter);
+			// int color = set_color(f, x, nb_iter);
+			int color_index = nb_iter % 5; // Choose color based on nb_iter
+        	int color = f->color_storage[color_index]; // Get color from storage
+			printf("color ind:  %d \n", color_index);
+				// for (int i = 0; i < 10; i++) {
+				// 	printf("Color %d: #%06X\n", i, f->color_storage[i]);
+				// }
+			printf("color:  %d \n", color);
+       	 	// my_mlx_pixel_put(f, x, y, color); // Use your function to put the pixel
+			my_mlx_pixel_put(f, y, x, color); //HEREREREREREREERE
+			// set_color(f, x, y, color);
+			// set_color
+			// sleep(10);
+			// exit(1);
+			// set_color(f, x, y, 0xD7E4FF);
 		}
-		printf("nb iter: %d \n", f->nb_iter);
+		// printf("nb iter: %d \n", f->nb_iter);
+		
 	}
 
+	free(f->color_storage);
 	mlx_put_image_to_window(f->mlx, f->win, f->m, 1, 0);
 
 	return 0;

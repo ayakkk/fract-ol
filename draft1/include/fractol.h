@@ -17,7 +17,7 @@
 
 # define WIDTH 1000
 # define HEIGHT 1000
-# define MAX_ITERATIONS 50
+# define MAX_ITERATIONS 200
 
 
 //k = complex constants , (ki and kr)
@@ -51,6 +51,8 @@ typedef struct s_fractol
 	int bits_per_pixel;
 	int endian;
 	int line_length;
+
+	int * color_storage; //free this later
 }	t_fractol;
 
 //main
@@ -67,12 +69,16 @@ void	complex_init(t_fractol *f);
 void init_set();
 void julia_init();
 // void fractal_calculation(t_fractol *f, int ar, int ai);
-int fractal_calculation(t_fractol *f, int ar, int ai);
+int fractal_iter_calculation(t_fractol *f, double ar, double ai);
 int	mandelbrot(double cr, double ci);
+// int julia(t_fractol *fractol, double zr, double zi);
 
 //colors
-void set_color(t_fractol *a);
+// void set_color(t_fractol *a);
+// void set_color(t_fractol *a, int x, int y, int color);
+void set_color(t_fractol *a, int i, int color);
 void	my_mlx_pixel_put( t_fractol *a , int i, int j, int color);
+void init_color_storage(t_fractol *f);
 
 //render
 int rerender(t_fractol *f);

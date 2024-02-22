@@ -19,13 +19,13 @@ FLAGS= -I/usr/X11R6/include
 
 MLX_CFLAGS    =    -L/usr/X11R6/lib -lX11 -lXext -lm #REMOVE IF NOT ON M1
 
-all : $(NAME) 
-
 $(NAME) : $(OBJ)
 		$(MAKE)  -C libft
 		$(MAKE)  -C $(MINI_DIR)
 		cp $(MINI_DIR)/$(MINI_LIB) ./
 		$(CC) -I $(HEADER) $(MINI_DIR)/$(MINI_LIB) $(MLX_CFLAGS) ./libft/libft.a $(OBJ) -o $@
+
+all : $(NAME) 
 
 bonus: all 
 
@@ -35,6 +35,6 @@ clean:
 	rm -f $(OBJ) $(BONUS_OBJ) $(NAME_OBJ)
 
 fclean: clean
-	rm -f $(NAME) 
+	rm -f $(NAME) $(MINI_LIB)
 
 re: fclean all
