@@ -1,6 +1,6 @@
 NAME = fractol
 HEADER= ./include/ 
-SRC=colors.c fractol.c main.c render.c 
+SRC=colors.c fractol.c main.c render.c utils.c
 OBJ=$(SRC:.c=.o)
 BONUS_OBJ=$(BONUS:.c=.o)
 MINI_DIR= minilibx-linux
@@ -34,5 +34,8 @@ clean:
 
 fclean: clean
 	rm -f $(NAME) $(MINI_LIB)
+
+norm	:
+	norminette main.c ${SRC} include libft
 
 re: fclean all
