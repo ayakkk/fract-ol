@@ -17,19 +17,15 @@
 // # define JULIA_B -0.3
 # define JULIA_A 0.043
 # define JULIA_B 0.32
-
-
 # define WIDTH 1000
 # define HEIGHT 1000
 # define MAX_ITERATIONS 200
-
 
 //k = complex constants , (ki and kr)
 //sx, rx, fx for bonus, shifting n rotation stuff
 
 //zi and zr represents the currents pts in the interation process
 //cr anc ci represent the real and imaginary parts of c
-
 
 typedef struct s_fractol
 {
@@ -47,49 +43,38 @@ typedef struct s_fractol
 	double	sx;
 	double	rx;
 	double	fx;
-
-	double ratio;
-
-	int nb_iter;
-
-	int j_option; ////////////
-
+	double	ratio;
+	int		nb_iter;
+	int		j_option;
 	int		color;
-	char * adr;
-	int bits_per_pixel;
-	int endian;
-	int line_length;
-
-	int * color_storage; //free this later
+	char	*adr;
+	int		bits_per_pixel;
+	int		endian;
+	int		line_length;
+	int		color_storage[5];
 }	t_fractol;
 
 //main
-void fractal_init(t_fractol *a, char **argv);
-void ft_error(void);
-void print_fractol(t_fractol *frac);
-int x_button(int keycode, t_fractol *param);
+void	fractal_init(t_fractol *a, char **argv);
+void	ft_error(void);
+void	print_fractol(t_fractol *frac);
+int		x_button(int keycode, t_fractol *param);
 
 //fractol
 void	complex_init(t_fractol *f);
-void init_set();
-void julia_init();
-// void fractal_calculation(t_fractol *f, int ar, int ai);
-int fractal_iter_calculation(t_fractol *f, double ar, double ai);
-int	mandelbrot(double cr, double ci);
-// int julia(t_fractol *fractol, double zr, double zi);
+void	init_set();
+void	julia_init();
+int		fractal_iter_calculation(t_fractol *f, double ar, double ai);
+int		mandelbrot(double cr, double ci);
 
 //colors
-// void set_color(t_fractol *a);
-// void set_color(t_fractol *a, int x, int y, int color);
-void set_color(t_fractol *a, int i, int color);
+void	set_color(t_fractol *a, int i, int color);
 void	my_mlx_pixel_put( t_fractol *a , int i, int j, int color);
-void init_color_storage(t_fractol *f);
+void	init_color_storage(t_fractol *f);
 
 //render
-int rerender(t_fractol *f);
-// int key_press(int keycode, void *param);
-int key_press(int keycode, t_fractol *param);
-// int mouse_press(int button, int x, int y, void *param);
-int mouse_press(int button, int x, int y, t_fractol *param);
+int		rerender(t_fractol *f);
+int		key_press(int keycode, t_fractol *param);
+int		mouse_press(int button, int x, int y, t_fractol *param);
 
 #endif
