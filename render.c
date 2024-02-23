@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anakasuj <anakasuj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aya <aya@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 21:48:17 by anakasuj          #+#    #+#             */
-/*   Updated: 2024/02/22 22:10:19 by anakasuj         ###   ########.fr       */
+/*   Updated: 2024/02/23 13:35:01 by aya              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,12 +75,14 @@ int	rerender(t_fractol *f)
 	while (y++ < WIDTH)
 	{
 		x = -1;
+		// x = HEIGHT;
 		while (x++ < HEIGHT)
+		// while (x-- > 0)
 		{
-			ar = f->min_r + (double)x * (f->max_r - f->min_r) / HEIGHT;
-			ai = f->max_i + (double)y * (f->min_i - f->max_i) / WIDTH;
+			ai = f->min_r + (double)x * (f->max_r - f->min_r) / HEIGHT;
+			ar = f->max_i + (double)y * (f->min_i - f->max_i) / WIDTH;
 			nb_iter = fractal_iter_calculation(f, f->ratio * ar, f->ratio * ai);
-			my_mlx_pixel_put(f, y, x, f->color_storage[nb_iter % 5]);
+			my_mlx_pixel_put(f, x, y, f->color_storage[nb_iter % 5]);
 		}
 	}
 	mlx_put_image_to_window(f->mlx, f->win, f->m, 1, 0);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anakasuj <anakasuj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aya <aya@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 21:49:27 by anakasuj          #+#    #+#             */
-/*   Updated: 2024/02/22 22:11:19 by anakasuj         ###   ########.fr       */
+/*   Updated: 2024/02/23 13:22:09 by aya              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,11 +92,9 @@ void	ft_mlx_init(t_fractol *f)
 		printf("mlx connection error");
 		exit(1);
 	}
-	f->win = mlx_new_window(f->mlx, WIDTH, HEIGHT, "Fractol");
+	f->win = mlx_new_window(f->mlx, WIDTH, HEIGHT, "Fract-ol");
 	if (!f->win)
-	{
-		printf("window creation error");
-	}
+		ft_error();
 	complex_init(f);
 	f->m = mlx_new_image(f->mlx, WIDTH, HEIGHT);
 	f->adr = mlx_get_data_addr(f->m, &f->bits_per_pixel, &f->line_length,
