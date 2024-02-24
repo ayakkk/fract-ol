@@ -6,13 +6,13 @@
 /*   By: aya <aya@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 21:49:27 by anakasuj          #+#    #+#             */
-/*   Updated: 2024/02/23 13:22:09 by aya              ###   ########.fr       */
+/*   Updated: 2024/02/24 16:37:50 by aya              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static char	*ignore_case(char *s1)
+static char	*convert_to_upper(char *s1)
 {
 	size_t	i;
 
@@ -42,7 +42,7 @@ void	classify_set(t_fractol *a, char **argv)
 {
 	char	*str;
 
-	str = ignore_case(argv[1]);
+	str = convert_to_upper(argv[1]);
 	if (ft_strcmp(str, "JULIA") == 0)
 	{
 		a->set = JULIA;

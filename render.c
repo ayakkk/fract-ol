@@ -6,7 +6,7 @@
 /*   By: aya <aya@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 21:48:17 by anakasuj          #+#    #+#             */
-/*   Updated: 2024/02/23 13:35:01 by aya              ###   ########.fr       */
+/*   Updated: 2024/02/24 16:50:29 by aya              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	key_press(int keycode, t_fractol *param)
 {
-	(void)param;
 	if (keycode == 'w')
 	{
 		param->ratio /= 1.1;
@@ -25,6 +24,18 @@ int	key_press(int keycode, t_fractol *param)
 		param->ratio *= 1.1;
 		rerender((t_fractol *)param);
 	}
+	// else if (keycode ==  65362){ //ARROW UP
+		
+	// }
+	// else if (keycode ==  65364){ //ARROW DOWN
+		
+	// }
+	// else if (keycode ==  65361){ //ARROW LEFT
+		
+	// }
+	// else if (keycode ==  65363){ //ARROW RIGHT
+		
+	// }
 	else if (keycode == 65307)
 	{
 		printf("ESC\n");
@@ -69,7 +80,7 @@ int	rerender(t_fractol *f)
 	int		nb_iter;
 
 	nb_iter = 1;
-	mlx_clear_window(f->mlx, f->win);
+	// mlx_clear_window(f->mlx, f->win);
 	init_color_storage(f);
 	y = -1;
 	while (y++ < WIDTH)

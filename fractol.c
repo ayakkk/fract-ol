@@ -6,7 +6,7 @@
 /*   By: aya <aya@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 21:47:50 by anakasuj          #+#    #+#             */
-/*   Updated: 2024/02/23 13:36:48 by aya              ###   ########.fr       */
+/*   Updated: 2024/02/24 17:03:24 by aya              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int	mandelbrot(double cr, double ci)
 //starting real and imaginary valyes diff
 //find julia starting values
 
+//change the sign of i  
 int	julia(t_fractol *fractol, double zr, double zi)
 {
 	int		n;
@@ -63,12 +64,12 @@ int	julia(t_fractol *fractol, double zr, double zi)
 			break ;
 		if (fractol->j_option == 0)
 		{
-			tmp = 2 * zr * zi + 0.043;
+			tmp = 2 * zr * zi - 0.043;
 			zr = (zr * zr) - (zi * zi) + 0.32;
 		}
 		else
 		{
-			tmp = 2 * zr * zi - 0.63;
+			tmp = 2 * zr * zi + 0.63;
 			zr = (zr * zr) - (zi * zi) - 0.3;
 		}
 		zi = tmp;

@@ -30,10 +30,10 @@ bonus: all
 %.o : %.c
 	cc $(FLAGS) -I $(MINI_DIR) -I $(HEADER) -c $< -o $@ 
 clean:
-	rm -f $(OBJ) $(BONUS_OBJ) $(NAME_OBJ)
+	rm -f $(OBJ) $(BONUS_OBJ) $(NAME_OBJ) -C libft/*.o
 
 fclean: clean
-	rm -f $(NAME) $(MINI_LIB)
+	rm -f $(NAME) $(MINI_LIB) -C libft/*.a
 
 norm	:
 	norminette main.c ${SRC} include libft
