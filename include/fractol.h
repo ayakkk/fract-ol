@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yshimoma <yshimoma@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: aya <aya@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 22:14:00 by anakasuj          #+#    #+#             */
-/*   Updated: 2024/03/03 15:11:56 by yshimoma         ###   ########.fr       */
+/*   Updated: 2024/03/03 23:15:03 by aya              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,6 @@ typedef struct s_fractol
 	double	max_r;
 	double	min_i;
 	double	max_i;
-	double	kr;
-	double	ki;
-	double	sx;
-	double	rx;
-	double	fx;
 	double	ratio;
 	int		nb_iter;
 	double	j_constant_x;

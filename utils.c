@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yshimoma <yshimoma@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: aya <aya@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 21:49:27 by anakasuj          #+#    #+#             */
-/*   Updated: 2024/03/03 15:11:47 by yshimoma         ###   ########.fr       */
+/*   Updated: 2024/03/03 23:13:26 by aya              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,11 +89,6 @@ void	fractal_init(t_fractol *a, int argc, char **argv)
 	a->max_r = 0;
 	a->min_i = 0;
 	a->max_i = 0;
-	a->kr = 0;
-	a->ki = 0;
-	a->sx = 0;
-	a->rx = 0;
-	a->fx = 0;
 	a->ratio = 1;
 	a->color = 0;
 	a->adr = NULL;
