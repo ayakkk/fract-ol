@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aya <aya@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: yshimoma <yshimoma@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 21:49:27 by anakasuj          #+#    #+#             */
-/*   Updated: 2024/02/24 16:37:50 by aya              ###   ########.fr       */
+/*   Updated: 2024/03/03 15:11:47 by yshimoma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static char	*convert_to_upper(char *s1)
+char	*convert_to_upper(char *s1)
 {
 	size_t	i;
 
@@ -28,7 +28,7 @@ static char	*convert_to_upper(char *s1)
 	return (s1);
 }
 
-static int	ft_strcmp(const char *s1, const char *s2)
+int	ft_strcmp(const char *s1, const char *s2)
 {
 	while (*s1 && (*s1 == *s2))
 	{
@@ -56,7 +56,29 @@ void	classify_set(t_fractol *a, char **argv)
 	ft_error();
 }
 
-void	fractal_init(t_fractol *a, char **argv)
+static void set_j_constant(t_fractol *a, int argc, char **argv)
+{
+	if (argc == 3)
+	{
+		if (ft_strcmp(argv[2], "a") != 0)
+		{
+			a->j_constant_x = -0.043;
+			a->j_constant_y = 0.32;
+		}
+		else if (ft_strcmp(argv[2], "b") != 0)
+		{
+			a->j_constant_x = 0.63;
+			a->j_constant_y = -0.3;
+		}
+	}
+	else if (argc == 4)
+	{
+		a->j_constant_x = ft_atof(argv[2]);
+		a->j_constant_y = ft_atof(argv[3]);
+	}
+}
+
+void	fractal_init(t_fractol *a, int argc, char **argv)
 {
 	a->mlx = NULL;
 	a->win = NULL;
@@ -78,25 +100,5 @@ void	fractal_init(t_fractol *a, char **argv)
 	a->bits_per_pixel = 0;
 	a->line_length = 0;
 	classify_set(a, argv);
-	if (argv[2] != NULL)
-		a->j_option = ft_atoi(argv[2]);
-	else
-		a->j_option = 0;
-}
-
-void	ft_mlx_init(t_fractol *f)
-{
-	f->mlx = mlx_init();
-	if (!f->mlx)
-	{
-		printf("mlx connection error");
-		exit(1);
-	}
-	f->win = mlx_new_window(f->mlx, WIDTH, HEIGHT, "Fract-ol");
-	if (!f->win)
-		ft_error();
-	complex_init(f);
-	f->m = mlx_new_image(f->mlx, WIDTH, HEIGHT);
-	f->adr = mlx_get_data_addr(f->m, &f->bits_per_pixel, &f->line_length,
-			&f->endian);
+	set_j_constant(a, argc, argv);
 }

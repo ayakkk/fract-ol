@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aya <aya@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: yshimoma <yshimoma@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 21:47:50 by anakasuj          #+#    #+#             */
-/*   Updated: 2024/02/24 17:03:24 by aya              ###   ########.fr       */
+/*   Updated: 2024/03/03 15:44:06 by yshimoma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,22 +56,13 @@ int	julia(t_fractol *fractol, double zr, double zi)
 	int		n;
 	double	tmp;
 
-	(void)fractol;
 	n = 0;
 	while (n < MAX_ITERATIONS)
 	{
 		if ((zr * zr + zi * zi) > 4.0)
 			break ;
-		if (fractol->j_option == 0)
-		{
-			tmp = 2 * zr * zi - 0.043;
-			zr = (zr * zr) - (zi * zi) + 0.32;
-		}
-		else
-		{
-			tmp = 2 * zr * zi + 0.63;
-			zr = (zr * zr) - (zi * zi) - 0.3;
-		}
+		tmp = 2 * zr * zi + fractol->j_constant_x;
+		zr = (zr * zr) - (zi * zi) + fractol->j_constant_y;
 		zi = tmp;
 		n++;
 	}

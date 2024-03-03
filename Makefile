@@ -1,6 +1,6 @@
 NAME = fractol
 HEADER= ./include/ 
-SRC=colors.c fractol.c main.c render.c utils.c
+SRC=colors.c fractol.c main.c render.c utils.c ft_atof.c
 OBJ=$(SRC:.c=.o)
 BONUS_OBJ=$(BONUS:.c=.o)
 MINI_DIR= minilibx-linux

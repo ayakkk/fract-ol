@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aya <aya@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: yshimoma <yshimoma@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 22:14:00 by anakasuj          #+#    #+#             */
-/*   Updated: 2024/02/24 16:55:01 by aya              ###   ########.fr       */
+/*   Updated: 2024/03/03 15:11:56 by yshimoma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ typedef struct s_fractol
 	double	fx;
 	double	ratio;
 	int		nb_iter;
-	int		j_option;
+	double	j_constant_x;
+	double	j_constant_y;
 	int		color;
 	char	*adr;
 	int		bits_per_pixel;
@@ -68,9 +69,10 @@ void		print_fractol(t_fractol *frac);
 int			x_button(int keycode, t_fractol *param);
 
 //utils
+char		*convert_to_upper(char *s1);
+int			ft_strcmp(const char *s1, const char *s2);
 void		classify_set(t_fractol *a, char **argv);
-void		fractal_init(t_fractol *a, char **argv);
-void		ft_mlx_init(t_fractol *f);
+void		fractal_init(t_fractol *a, int argc, char **argv);
 
 //fractol
 void		complex_init(t_fractol *f);
@@ -88,5 +90,8 @@ void		init_color_storage(t_fractol *f);
 int			rerender(t_fractol *f);
 int			key_press(int keycode, t_fractol *param);
 int			mouse_press(int button, int x, int y, t_fractol *param);
+
+//ft_atof
+double		ft_atof(const char *str);
 
 #endif
