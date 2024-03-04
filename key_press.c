@@ -27,8 +27,16 @@ static void	shift_imaginary_axis(
 	double extend_amount,
 	t_fractol *param)
 {
-	param-> min_i += shift_amount;
-	param-> max_i += extend_amount;
+	if (param->set == MANDELBROT)
+	{
+		param-> min_i += shift_amount;
+		param-> max_i += extend_amount;
+	}
+	else if (param->set == JULIA)
+	{
+		param-> min_i -= shift_amount;
+		param-> max_i -= extend_amount;
+	}
 	rerender((t_fractol *)param);
 }
 
