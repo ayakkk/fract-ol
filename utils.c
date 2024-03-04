@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aya <aya@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/22 21:49:27 by anakasuj          #+#    #+#             */
-/*   Updated: 2024/03/03 23:13:26 by aya              ###   ########.fr       */
+/*   Created: 2024/02/22 21:48:06 by anakasuj          #+#    #+#             */
+/*   Updated: 2024/03/04 18:58:32 by aya              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	classify_set(t_fractol *a, char **argv)
 	ft_error();
 }
 
-static void set_j_constant(t_fractol *a, int argc, char **argv)
+static void	set_j_constant(t_fractol *a, int argc, char **argv)
 {
 	if (argc == 3)
 	{

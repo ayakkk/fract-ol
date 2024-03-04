@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anakasuj <anakasuj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yshimoma <yshimoma@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 15:16:29 by anakasuj          #+#    #+#             */
-/*   Updated: 2024/02/17 02:04:53 by anakasuj         ###   ########.fr       */
+/*   Updated: 2024/03/04 22:51:24 by yshimoma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,10 @@ char	**ft_split(char const *s, char c)
 	while (words--)
 	{
 		while (*s == c && *s)
-		s++;
-		tab[i] = get_word(s, c);
+		{
+			s++;
+			tab[i] = get_word(s, c);
+		}
 		if (tab[i] == NULL)
 		{
 			free_split(tab);

@@ -5,52 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aya <aya@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/22 21:48:17 by anakasuj          #+#    #+#             */
-/*   Updated: 2024/03/04 19:13:03 by aya              ###   ########.fr       */
+/*   Created: 2024/02/22 21:48:06 by anakasuj          #+#    #+#             */
+/*   Updated: 2024/03/04 18:58:32 by aya              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
-int	key_press(int keycode, t_fractol *param)
-{
-	if (keycode == 'w')
-	{
-		param->ratio /= 1.1;
-		rerender((t_fractol *)param);
-	}
-	else if (keycode == 's')
-	{
-		param->ratio *= 1.1;
-		rerender((t_fractol *)param);
-	}
-	else if (keycode ==  65362){ //ARROW UP
-		param-> min_r += 0.1;
-        param-> max_r += 0.1;
-        rerender((t_fractol *)param);
-	}
-	else if (keycode ==  65364){ //ARROW DOWN
-		param-> min_r -= 0.1;
-        param-> max_r -= 0.1;
-        rerender((t_fractol *)param);
-	}
-	else if (keycode ==  65361){ //ARROW LEFT
-		param-> min_i -= 0.1;
-        param-> max_i -= 0.1;
-        rerender((t_fractol *)param);
-	}
-	else if (keycode ==  65363){ //ARROW RIGHT
-		param-> min_i += 0.1;
-        param-> max_i += 0.1;
-        rerender((t_fractol *)param);
-	}
-	else if (keycode == 65307)
-	{
-		printf("ESC\n");
-		exit(1);
-	}
-	return (0);
-}
 
 int	x_button(int keycode, t_fractol *param)
 {
@@ -88,7 +48,6 @@ int	rerender(t_fractol *f)
 	int		nb_iter;
 
 	nb_iter = 1;
-	// mlx_clear_window(f->mlx, f->win);
 	init_color_storage(f);
 	y = -1;
 	while (y++ < WIDTH)

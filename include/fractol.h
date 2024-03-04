@@ -82,8 +82,10 @@ void		init_color_storage(t_fractol *f);
 
 //render
 int			rerender(t_fractol *f);
-int			key_press(int keycode, t_fractol *param);
 int			mouse_press(int button, int x, int y, t_fractol *param);
+
+//key_press
+int			key_press(int keycode, t_fractol *param);
 
 //ft_atof
 double		ft_atof(const char *str);

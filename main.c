@@ -69,19 +69,19 @@ static int	is_valid_parameter(int argc, char **argv)
 	return (-1);
 }
 
-static int	print_parameter_error()
+static int	print_parameter_error(void)
 {
 	ft_putstr_fd("\033[31mError: Invalid arguments provided.\n"
-          "Usage:\n"
-          "  ./fractol MANDELBROT\n"
-          "  ./fractol JULIA a\n"
-          "  ./fractol JULIA b\n"
-          "  ./fractol JULIA [real_part] [imaginary_part]\n\n"
-          "Where [real_part] and [imaginary_part] are floating-"
-          "point numbers representing the complex number for the "
-          "Julia set calculation.\n\n"
-          "Please provide the correct arguments according to the "
-          "usage guidelines above.\n\033[0m", 2);
+		"Usage:\n"
+		"  ./fractol MANDELBROT\n"
+		"  ./fractol JULIA a\n"
+		"  ./fractol JULIA b\n"
+		"  ./fractol JULIA [real_part] [imaginary_part]\n\n"
+		"Where [real_part] and [imaginary_part] are floating-"
+		"point numbers representing the complex number for the "
+		"Julia set calculation.\n\n"
+		"Please provide the correct arguments according to the "
+		"usage guidelines above.\n\033[0m", 2);
 	return (-1);
 }
 
