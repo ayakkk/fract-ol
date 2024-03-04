@@ -6,7 +6,7 @@
 /*   By: aya <aya@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 21:48:06 by anakasuj          #+#    #+#             */
-/*   Updated: 2024/03/03 23:15:46 by aya              ###   ########.fr       */
+/*   Updated: 2024/03/04 18:58:32 by aya              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ static int	is_float(const char *str)
 			return (-1);
 		i++;
 	}
-	return (0);
+	return (1);
 }
 
-static int	is_parameter_valid(int argc, char **argv)
+static int	is_valid_parameter(int argc, char **argv)
 {
 	char	*str;
 
@@ -60,7 +60,7 @@ static int	is_parameter_valid(int argc, char **argv)
 		}
 		else if (argc == 4)
 		{
-			if (is_float(argv[2]) == 0 && is_float(argv[3]) == 0)
+			if (is_float(argv[2]) == 1 && is_float(argv[3]) == 1)
 				return (0);
 		}
 		else
@@ -78,9 +78,9 @@ static int	print_parameter_error()
           "  ./fractol JULIA b\n"
           "  ./fractol JULIA [real_part] [imaginary_part]\n\n"
           "Where [real_part] and [imaginary_part] are floating-"
-          "point numbers representing the complex number for the"
+          "point numbers representing the complex number for the "
           "Julia set calculation.\n\n"
-          "Please provide the correct arguments according to the"
+          "Please provide the correct arguments according to the "
           "usage guidelines above.\n\033[0m", 2);
 	return (-1);
 }
@@ -106,7 +106,7 @@ int	main(int argc, char **argv)
 {
 	t_fractol	a;
 
-	if (is_parameter_valid(argc, argv) < 0)
+	if (is_valid_parameter(argc, argv) < 0)
 		return (print_parameter_error());
 	fractal_init(&a, argc, argv);
 	classify_set(&a, argv);

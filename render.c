@@ -6,7 +6,7 @@
 /*   By: aya <aya@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 21:48:17 by anakasuj          #+#    #+#             */
-/*   Updated: 2024/03/03 23:16:25 by aya              ###   ########.fr       */
+/*   Updated: 2024/03/04 19:13:03 by aya              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,26 @@ int	key_press(int keycode, t_fractol *param)
 		param->ratio *= 1.1;
 		rerender((t_fractol *)param);
 	}
-	// else if (keycode ==  65362){ //ARROW UP
-		
-	// }
-	// else if (keycode ==  65364){ //ARROW DOWN
-		
-	// }
-	// else if (keycode ==  65361){ //ARROW LEFT
-		
-	// }
-	// else if (keycode ==  65363){ //ARROW RIGHT
-		
-	// }
+	else if (keycode ==  65362){ //ARROW UP
+		param-> min_r += 0.1;
+        param-> max_r += 0.1;
+        rerender((t_fractol *)param);
+	}
+	else if (keycode ==  65364){ //ARROW DOWN
+		param-> min_r -= 0.1;
+        param-> max_r -= 0.1;
+        rerender((t_fractol *)param);
+	}
+	else if (keycode ==  65361){ //ARROW LEFT
+		param-> min_i -= 0.1;
+        param-> max_i -= 0.1;
+        rerender((t_fractol *)param);
+	}
+	else if (keycode ==  65363){ //ARROW RIGHT
+		param-> min_i += 0.1;
+        param-> max_i += 0.1;
+        rerender((t_fractol *)param);
+	}
 	else if (keycode == 65307)
 	{
 		printf("ESC\n");
@@ -86,9 +94,7 @@ int	rerender(t_fractol *f)
 	while (y++ < WIDTH)
 	{
 		x = -1;
-		// x = HEIGHT;
 		while (x++ < HEIGHT)
-		// while (x-- > 0)
 		{
 			ai = f->min_r + (double)x * (f->max_r - f->min_r) / HEIGHT;
 			ar = f->max_i + (double)y * (f->min_i - f->max_i) / WIDTH;

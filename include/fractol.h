@@ -6,7 +6,7 @@
 /*   By: aya <aya@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 22:14:00 by anakasuj          #+#    #+#             */
-/*   Updated: 2024/03/03 23:15:03 by aya              ###   ########.fr       */
+/*   Updated: 2024/03/04 18:57:46 by aya              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@
 //sx, rx, fx for bonus, shifting n rotation stuff
 
 //zi and zr represents the currents pts in the interation process
-//cr anc ci represent the real and imaginary parts of c
 
 typedef struct s_fractol
 {
@@ -60,7 +59,7 @@ typedef struct s_fractol
 
 //main
 void		ft_error(void);
-void		print_fractol(t_fractol *frac);
+// void		print_fractol(t_fractol *frac);
 int			x_button(int keycode, t_fractol *param);
 
 //utils
