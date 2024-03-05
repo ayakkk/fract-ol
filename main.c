@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aya <aya@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: anakasuj <anakasuj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 21:48:06 by anakasuj          #+#    #+#             */
-/*   Updated: 2024/03/04 18:58:32 by aya              ###   ########.fr       */
+/*   Updated: 2024/03/05 12:41:58 by anakasuj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ static int	print_parameter_error(void)
 		"  ./fractol MANDELBROT\n"
 		"  ./fractol JULIA a\n"
 		"  ./fractol JULIA b\n"
-		"  ./fractol JULIA [real_part] [imaginary_part]\n\n"
+		"  ./fractol JULIA [imaginary_part] [real_part]  \n\n"
 		"Where [real_part] and [imaginary_part] are floating-"
 		"point numbers representing the complex number for the "
 		"Julia set calculation.\n\n"
