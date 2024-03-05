@@ -55,15 +55,9 @@ int	rerender(t_fractol *f)
 		x = -1;
 		while (x++ < HEIGHT)
 		{
-			// ai = f->min_r + (double)x * (f->max_r - f->min_r) / HEIGHT;
-			// ar = f->max_i + (double)y * (f->min_i - f->max_i) / WIDTH;
 			ai = f->min_r + (double)x * (f->max_r - f->min_r) / HEIGHT;
-            ar = f->max_i + (double)y * (f->min_i - f->max_i) / WIDTH;
-            
+			ar = f->max_i + (double)y * (f->min_i - f->max_i) / WIDTH;
 			nb_iter = fractal_iter_calculation(f, f->ratio * ar, f->ratio * ai);
-			// nb_iter = fractal_iter_calculation(f, f->ratio * ai, f->ratio * ar);
-			// my_mlx_pixel_put(f, x, y, f->color_storage[nb_iter % 5]);
-			// my_mlx_pixel_put(f, y, x, f->color_storage[nb_iter % 5]);
 			my_mlx_pixel_put(f, x, y, f->color_storage[nb_iter % 5]);
 		}
 	}

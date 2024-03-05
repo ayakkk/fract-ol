@@ -64,8 +64,6 @@ static void	set_j_constant(t_fractol *a, int argc, char **argv)
 		{
 			a->j_constant_i = -0.043;
 			a->j_constant_r = 0.32;
-			// a->j_constant_r = -1.476;
-			// a->j_constant_i = 0;
 		}
 		else if (ft_strcmp(argv[2], "b") == 0)
 		{
