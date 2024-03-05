@@ -6,7 +6,7 @@
 /*   By: aya <aya@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 21:48:06 by anakasuj          #+#    #+#             */
-/*   Updated: 2024/03/04 18:58:32 by aya              ###   ########.fr       */
+/*   Updated: 2024/03/05 13:18:24 by aya              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,21 +60,23 @@ static void	set_j_constant(t_fractol *a, int argc, char **argv)
 {
 	if (argc == 3)
 	{
-		if (ft_strcmp(argv[2], "a") != 0)
+		if (ft_strcmp(argv[2], "a") == 0)
 		{
-			a->j_constant_x = -0.043;
-			a->j_constant_y = 0.32;
+			a->j_constant_i = -0.043;
+			a->j_constant_r = 0.32;
+			// a->j_constant_r = -1.476;
+			// a->j_constant_i = 0;
 		}
-		else if (ft_strcmp(argv[2], "b") != 0)
+		else if (ft_strcmp(argv[2], "b") == 0)
 		{
-			a->j_constant_x = 0.63;
-			a->j_constant_y = -0.3;
+			a->j_constant_i = 0.63;
+			a->j_constant_r = -0.3;
 		}
 	}
 	else if (argc == 4)
 	{
-		a->j_constant_x = ft_atof(argv[2]);
-		a->j_constant_y = ft_atof(argv[3]);
+		a->j_constant_r = ft_atof(argv[2]);
+		a->j_constant_i = ft_atof(argv[3]);
 	}
 }
 

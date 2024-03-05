@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anakasuj <anakasuj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aya <aya@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 22:14:00 by anakasuj          #+#    #+#             */
-/*   Updated: 2024/03/05 12:41:16 by anakasuj         ###   ########.fr       */
+/*   Updated: 2024/03/05 13:11:05 by aya              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ typedef struct s_fractol
 	double	max_i;
 	double	ratio;
 	int		nb_iter;
-	double	j_constant_x;
-	double	j_constant_y;
+	double	j_constant_r;
+	double	j_constant_i;
 	int		color;
 	char	*adr;
 	int		bits_per_pixel;
