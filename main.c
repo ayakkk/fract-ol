@@ -6,7 +6,7 @@
 /*   By: aya <aya@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 21:48:06 by anakasuj          #+#    #+#             */
-/*   Updated: 2024/03/05 13:18:36 by aya              ###   ########.fr       */
+/*   Updated: 2024/03/05 22:57:39 by aya              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ static void	ft_mlx_init(t_fractol *f)
 	f->mlx = mlx_init();
 	if (!f->mlx)
 	{
-		printf("mlx connection error");
+		write(1, "mlx connection error\n", 22);
 		exit(1);
 	}
 	f->win = mlx_new_window(f->mlx, WIDTH, HEIGHT, "Fract-ol");

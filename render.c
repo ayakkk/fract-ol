@@ -6,7 +6,7 @@
 /*   By: aya <aya@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 21:48:06 by anakasuj          #+#    #+#             */
-/*   Updated: 2024/03/05 13:47:51 by aya              ###   ########.fr       */
+/*   Updated: 2024/03/05 22:58:12 by aya              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	x_button(int keycode, t_fractol *param)
 {
 	(void)keycode;
 	(void)param;
-	printf("closing \n");
+	write(1, "closing\n", 9);
 	exit(1);
 }
 
@@ -61,6 +61,6 @@ int	rerender(t_fractol *f)
 			my_mlx_pixel_put(f, x, y, f->color_storage[nb_iter % 5]);
 		}
 	}
-	mlx_put_image_to_window(f->mlx, f->win, f->m, 1, 0);
+	mlx_put_image_to_window(f->mlx, f->win, f->m, 0, 0);
 	return (0);
 }

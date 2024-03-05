@@ -6,7 +6,7 @@
 /*   By: aya <aya@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 21:48:06 by anakasuj          #+#    #+#             */
-/*   Updated: 2024/03/05 12:51:09 by aya              ###   ########.fr       */
+/*   Updated: 2024/03/05 22:56:52 by aya              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	key_press(int keycode, t_fractol *param)
 		shift_imaginary_axis(0.1, 0.1, param);
 	else if (keycode == 65307)
 	{
-		printf("ESC\n");
+		write(1, "ESC\n", 5);
 		exit(1);
 	}
 	return (0);
