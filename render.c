@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aya <aya@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: anakasuj <anakasuj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 21:48:06 by anakasuj          #+#    #+#             */
-/*   Updated: 2024/03/05 22:58:12 by aya              ###   ########.fr       */
+/*   Updated: 2024/03/14 17:35:55 by anakasuj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,10 @@ int	rerender(t_fractol *f)
 			ai = f->min_r + (double)x * (f->max_r - f->min_r) / HEIGHT;
 			ar = f->max_i + (double)y * (f->min_i - f->max_i) / WIDTH;
 			nb_iter = fractal_iter_calculation(f, f->ratio * ar, f->ratio * ai);
-			my_mlx_pixel_put(f, x, y, f->color_storage[nb_iter % 5]);
+			if (nb_iter == MAX_ITERATIONS)
+				my_mlx_pixel_put(f, x, y, 0);
+			else
+				my_mlx_pixel_put(f, x, y, f->color_storage[nb_iter % 5]);
 		}
 	}
 	mlx_put_image_to_window(f->mlx, f->win, f->m, 0, 0);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aya <aya@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: anakasuj <anakasuj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 22:14:00 by anakasuj          #+#    #+#             */
-/*   Updated: 2024/03/05 13:11:05 by aya              ###   ########.fr       */
+/*   Updated: 2024/03/14 17:36:19 by anakasuj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@
 # include <math.h>
 # include <stdbool.h>
 # include <stdio.h>
-# include <stdlib.h> //possibly not necessary
+# include <stdlib.h>
 # include <string.h>
 
 # define MANDELBROT 1
 # define JULIA 2
 # define WIDTH 1000
 # define HEIGHT 1000
-# define MAX_ITERATIONS 200
+# define MAX_ITERATIONS 50
 
 //k = complex constants , (ki and kr)
 //sx, rx, fx for bonus, shifting n rotation stuff
